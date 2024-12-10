@@ -49,7 +49,9 @@ public class DB implements Serializable {
     }
 
     public void addNewCourse(String subject, int section, String room, String timing, Faculty faculty) {
-        courses.add(new Course(subject, section, room, timing, faculty));
+        Course course = new Course(subject, section, room, timing, faculty);
+        courses.add(course);
+        faculty.addNewCourse(course);
     }
 
     public void saveData() {
