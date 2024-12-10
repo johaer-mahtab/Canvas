@@ -10,14 +10,12 @@ public class Current {
     public static UserDB getUserDB() {
         return userDB;
     }
-    public static void loadUserDB(UserDB userDB) {
-        Current.userDB = userDB;
+    public static void load() {
+        userDB = new UserDB().loadData();
+        courseDB = new CourseDB().loadData();
     }
     public static CourseDB getCourseDB() {
         return courseDB;
-    }
-    public static void setCourseDB(CourseDB courseDB) {
-        Current.courseDB = courseDB;
     }
     public User getCurrentUser() {
         return currentUser;

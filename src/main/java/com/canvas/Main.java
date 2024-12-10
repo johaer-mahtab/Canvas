@@ -1,6 +1,6 @@
 package com.canvas;
 
-import com.canvas.Model.DB.CourseDB;
+import com.canvas.Model.DB.Current;
 
 public class Main {
 
@@ -9,9 +9,7 @@ public class Main {
     }
 
     public static void initialize () {
-        // CourseDB.loadData();
-
-        
+        Current.load();        
     }
 
     public static void exit(String message) {

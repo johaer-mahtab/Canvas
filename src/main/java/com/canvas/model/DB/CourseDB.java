@@ -3,11 +3,7 @@ package com.canvas.Model.DB;
 import java.util.ArrayList;
 
 import com.canvas.Main;
-import com.canvas.Exception.NoSuchFaculty;
-import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.Course;
-import com.canvas.Model.Faculty;
-import com.canvas.Model.Student;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -52,7 +48,7 @@ public class CourseDB implements Serializable, SaveLoad {
             return courseDB;
         } catch (Exception e) {
             e.printStackTrace();
-            Main.exit("Load Failure");
+            Main.exit("Course DB Load Failure");
             return null;
         }
     }
