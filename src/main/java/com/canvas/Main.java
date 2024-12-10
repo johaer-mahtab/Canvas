@@ -19,7 +19,7 @@ public class Main {
         System.exit(0);
     }
 
-    public static String parseIds(ArrayList<String> ids) {
+    public static String joinWithComma(ArrayList<String> ids) {
         StringBuilder res = new StringBuilder("");
         for (int i = 0; i < ids.size(); i++) {
             if (i > 0) {

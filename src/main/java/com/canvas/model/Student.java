@@ -31,7 +31,7 @@ public class Student extends User {
     @Override
     public String toString() {
         return super.toString() + "\nCGPA: " + cGPA + "\nCredit Passed: " + creditPassed + "\nTotal Credit: " + totalCredit
-                + "\nCourses: " + Main.parseIds(courseUIDList);
+                + "\nCourses: " + Main.joinWithComma(courseUIDList);
     }
 
 }

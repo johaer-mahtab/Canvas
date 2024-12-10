@@ -3,6 +3,8 @@ package com.canvas.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+import com.canvas.Main;
+
 public class Gradeable implements Serializable {
     public static final long NANOSECONDS_IN_A_DAY = 86400000000000l;
 
@@ -19,4 +21,16 @@ public class Gradeable implements Serializable {
             submissions.add(new Submission(studentID));
         }
     }
+
+    @Override
+    public String toString() {
+        String s = "Type: " + type + "\nDeadline: " + deadline + "\nTotal Marks: " + totalMarks + "\nSubmissions: ";
+        for (int i = 0; i < submissions.size(); i++) {
+            if (i > 0)
+                s += "\n";
+            s += submissions.get(i).toString();
+        }
+        return s;
+    }
+
 }

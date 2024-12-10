@@ -36,7 +36,7 @@ public class Course implements Serializable {
     @Override
     public String toString() {
         return "Subject: " + subject + "\nSection: " + section + "\nRoom: " + room + "\nTiming: " + timing
-                + "\nFaculty Initials: " + facultyInitials + "\nEnrolled Students: " + Main.parseIds(enrolledStudentsID);
+                + "\nFaculty Initials: " + facultyInitials + "\nEnrolled Students: " + Main.joinWithComma(enrolledStudentsID);
     }
 
     

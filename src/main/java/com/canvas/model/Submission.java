@@ -9,4 +9,12 @@ public class Submission {
     public Submission(String student) {
         this.studentID = student;
     }
+
+    @Override
+    public String toString() {
+        return "\nStudentID: " + studentID + "\nSubmitted: " + submitted + "\nMarks: " + marks + "\nFeedback: "
+                + feedback;
+    }
+
+    
 }

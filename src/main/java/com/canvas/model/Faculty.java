@@ -34,6 +34,6 @@ public class Faculty extends User {
     public String toString() {
         return super.toString() + "\ninitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
                 + officeHour
-                + "\nDepartment: " + department + "\nCourses: " + Main.parseIds(courseUIDList);
+                + "\nDepartment: " + department + "\nCourses: " + Main.joinWithComma(courseUIDList);
     }
 }
