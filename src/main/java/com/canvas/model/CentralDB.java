@@ -1,4 +1,4 @@
-package com.canvas.model;
+package com.canvas.Model;
 
 import java.util.ArrayList;
 
