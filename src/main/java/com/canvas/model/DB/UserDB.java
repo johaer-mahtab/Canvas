@@ -21,7 +21,7 @@ public class UserDB implements Serializable, SaveLoad {
 
     private ArrayList<Faculty> faculties = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();
-    private static JFileChooser fileChooser = new JFileChooser();
+    private static final File DB = new File("User.DB");
 
     public Faculty getFaculty(String id) throws NoSuchFaculty {
         for (Faculty faculty : faculties) {
@@ -51,9 +51,7 @@ public class UserDB implements Serializable, SaveLoad {
 
     public void saveData() {
         try {
-            fileChooser.setSelectedFile(new File("UserDB.dat"));// Recommends a name
-            fileChooser.showSaveDialog(null);
-            FileOutputStream fileOutputStream = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
+            FileOutputStream fileOutputStream = new FileOutputStream(DB);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(this);
             objectOutputStream.close();
@@ -66,9 +64,11 @@ public class UserDB implements Serializable, SaveLoad {
 
     public UserDB loadData() {
         try {
+            if (!DB.exists()) {
+                saveData();
+            }
             UserDB userDB;
-            fileChooser.showOpenDialog(null);
-            FileInputStream fileInputStream = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath());
+            FileInputStream fileInputStream = new FileInputStream(DB);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             userDB = (UserDB) objectInputStream.readObject();
             objectInputStream.close();

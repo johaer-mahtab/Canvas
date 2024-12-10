@@ -17,7 +17,7 @@ import javax.swing.JFileChooser;
 
 public class CourseDB implements Serializable, SaveLoad {
     private ArrayList<Course> courses = new ArrayList<>();
-    private static JFileChooser fileChooser = new JFileChooser();
+    private static final File DB = new File("Course.DB");
 
     public void addNewCourse(Course course) {
         courses.add(course);
@@ -33,9 +33,7 @@ public class CourseDB implements Serializable, SaveLoad {
 
     public void saveData() {
         try {
-            fileChooser.setSelectedFile(new File("CourseDB.dat"));// Recommends a name
-            fileChooser.showSaveDialog(null);
-            FileOutputStream fileOutputStream = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
+            FileOutputStream fileOutputStream = new FileOutputStream(DB);
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
             objectOutputStream.writeObject(this);
             objectOutputStream.close();
@@ -48,9 +46,11 @@ public class CourseDB implements Serializable, SaveLoad {
 
     public CourseDB loadData() {
         try {
+            if (!DB.exists()) {
+                saveData();
+            }
             CourseDB courseDB;
-            fileChooser.showOpenDialog(null);
-            FileInputStream fileInputStream = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath());
+            FileInputStream fileInputStream = new FileInputStream(DB);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
             courseDB = (CourseDB) objectInputStream.readObject();
             objectInputStream.close();
