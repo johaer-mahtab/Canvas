@@ -1,5 +1,9 @@
 package com.canvas;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,12 +12,17 @@ import javax.swing.JOptionPane;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.Faculty;
+import com.canvas.Model.DB.CourseDB;
 import com.canvas.Model.DB.Current;
 import com.canvas.Output.Test;
 
 public class Main {
 
     public static void main(String[] args) {
+
+    }
+
+    public static void main55(String[] args) {
 
         Scanner in = new Scanner(System.in);
 
@@ -27,12 +36,32 @@ public class Main {
 
             //String username = JOptionPane.showInputDialog("Enter your username:");
             String username = getInputOfString("username");
-            // Current.setCurrentUser();
             //getProperUsername(username);
             String password = getInputOfString("password");
+
+            try {
+                Current.setCurrentUser(username);
+            } catch (NoSuchFaculty e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (NoSuchStudent e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
             //validPassword(password);
 
             Current.getCurrentUser().displayInfo();
+
+            if (Current.type == 1) {
+                System.out.println("[1] Add New Course");
+                int val = in.nextInt();
+
+                if (val == 1) {
+                    Current.getCurrentUser().addNewCourse()
+                }
+            } else {
+
+            }
 
 
 
