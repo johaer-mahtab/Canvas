@@ -8,11 +8,13 @@ public class Gradeable implements Serializable {
 
     private String task;
     private long deadline;
+    private double totalMarks;
     private ArrayList<Submission> submissions;
 
 
-    public Gradeable(String task, int days, Course currentCourse) {
+    public Gradeable(String task, int days,double totalMark, Course currentCourse) {
         this.task = task;
+        this.totalMarks = totalMark;
         deadline = System.nanoTime() + days * NANOSECONDS_IN_A_DAY;
         for (Student student : currentCourse.getStudents()) {
             submissions.add(new Submission(student));
