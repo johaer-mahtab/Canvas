@@ -3,6 +3,7 @@ package com.canvas.Model;
 import java.util.ArrayList;
 
 import com.canvas.Main;
+import com.canvas.Model.DB.Current;
 
 public class Faculty extends User {
     private String initial;
@@ -14,6 +15,7 @@ public class Faculty extends User {
     public void createNewCourse(String subject, int section, String room, String timing, String facultyInitials) {
         Course course = new Course(subject, section, room, timing, facultyInitials);
         courseUIDList.add(course.getUID());
+        Current.getCourseDB().addNewCourse(course);
     }
 
     public Faculty(String id, String password, String fullName, String initial, String officeRoom, String department) {
