@@ -45,8 +45,8 @@ public class UserDB implements Serializable, SaveLoad {
     }
 
     public void addNewStudent(String id, String password, String fullName,
-            double cGPA, int creditPassed, int totalCredit) {
-        students.add(new Student(id, password, fullName, cGPA, creditPassed, totalCredit));
+            int totalCredit) {
+        students.add(new Student(id, password, fullName, totalCredit));
     }
 
     public void saveData() {

@@ -10,25 +10,57 @@ public class Gradeable implements Serializable {
 
     private String type;
     private long deadline;
-    private double totalMarks;
+    private double totalMark;
     private ArrayList<Submission> submissions = new ArrayList<>();
+
+    public ArrayList<Submission> getSubmissions() {
+        return submissions;
+    }
+
+    public void addNewSubmission(String studentID, double marks, String feedback) {
+        submissions.add(new Submission(studentID, marks, feedback));
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public long getDeadline() {
+        return deadline;
+    }
+
+    public void setDeadline(long deadline) {
+        this.deadline = deadline;
+    }
+
+    public double getTotalMark() {
+        return totalMark;
+    }
+
+    public void setTotalMark(double totalMarks) {
+        this.totalMark = totalMarks;
+    }
 
     public Gradeable(String task, int days, double totalMark, Course currentCourse) {
         this.type = task;
-        this.totalMarks = totalMark;
+        this.totalMark = totalMark;
         deadline = System.nanoTime() + days * NANOSECONDS_IN_A_DAY;
-        for (String studentID : currentCourse.getStudentIDs()) {
-            submissions.add(new Submission(studentID));
-        }
     }
 
     @Override
     public String toString() {
-        String s = "Type: " + type + "\nDeadline: " + deadline + "\nTotal Marks: " + totalMarks + "\nSubmissions: ";
+        return "Type: " + type + "\nDeadline: " + deadline + "\nTotal Marks: " + totalMark;
+    }
+    public String toFacultyString() {
+        String s = toString() + "\nSubmissions: ";
         for (int i = 0; i < submissions.size(); i++) {
             if (i > 0)
                 s += "\n";
-            s += submissions.get(i).toString();
+            s += submissions.get(i).toFacultyString();
         }
         return s;
     }

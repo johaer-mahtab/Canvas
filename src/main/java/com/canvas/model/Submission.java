@@ -2,17 +2,27 @@ package com.canvas.Model;
 
 public class Submission {
     private String studentID;
-    private boolean submitted;
-    private double marks = -1;
+    private double marks;
     private String feedback;
-
-    public Submission(String student) {
-        this.studentID = student;
+    public Submission(String studentID, double marks, String feedback) {
+        this.studentID = studentID;
+        this.marks = marks;
+        this.feedback = feedback;
     }
 
-    @Override
-    public String toString() {
-        return "\nStudentID: " + studentID + "\nSubmitted: " + submitted + "\nMarks: " + marks + "\nFeedback: "
+    public double getMarks() {
+        return marks;
+    }
+
+    public String getStudentID() {
+        return studentID;
+    }
+    public String toFacultyString() {
+        return "StudentID: " + studentID + "\nMarks: " + marks + "\nFeedback: "
+                + feedback;
+    }
+    public String toStudentString() {
+        return "Marks: " + marks + "\nFeedback: "
                 + feedback;
     }
 

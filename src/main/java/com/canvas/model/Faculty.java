@@ -12,8 +12,8 @@ public class Faculty extends User {
     private String department;
     private ArrayList<String> courseUIDList = new ArrayList<>();
 
-    public void createNewCourse(String subject, int section, String room, String timing) {
-        Course course = new Course(subject, section, room, timing, initial);
+    public void createNewCourse(String subject, int section, int credit, String room, String timing) {
+        Course course = new Course(subject, section, credit, room, timing, initial);
         courseUIDList.add(course.getUID());
         Current.getCourseDB().addNewCourse(course);
     }

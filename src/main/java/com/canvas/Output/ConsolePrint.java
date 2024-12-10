@@ -68,8 +68,6 @@ public class ConsolePrint {
                         Custom.getInputOfString("ID"),
                         Custom.getInputOfString("Password"),
                         Custom.getInputOfString("FullName"),
-                        Custom.getInputOfDouble("CGPA"),
-                        Custom.getInputOfInt("creditPassed"),
                         Custom.getInputOfInt("Total Credit"));
             }
         }
