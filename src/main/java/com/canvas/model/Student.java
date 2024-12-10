@@ -32,6 +32,14 @@ public class Student extends User {
         course.addStudent(getId());
     }
 
+    public void enroll(String courseUID) {
+        try {
+            enroll(Current.getCourseDB().getCourse(courseUID));
+        } catch (NoSuchCourse e) {
+            System.out.println("Error adding course");
+        }
+    }
+
     public String getDetailsOfCourse(int index) {
         String s = "";
         Course c;

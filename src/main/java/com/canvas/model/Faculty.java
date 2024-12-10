@@ -33,7 +33,7 @@ public class Faculty extends User {
 
     @Override
     public String toString() {
-        return super.toString() + "\ninitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
+        return super.toString() + "\nInitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
                 + officeHour
                 + "\nDepartment: " + department + "\nCourses: " + Custom.joinWithComma(courseUIDList);
     }
