@@ -19,6 +19,14 @@ public class CourseDB implements Serializable, SaveLoad {
     private ArrayList<Course> courses = new ArrayList<>();
     private static final File DB = new File("Course.DB");
 
+    public String showAllCourses() {
+        String s = "";
+        for (Course course : courses) {
+            s += course.toString() + "\n";
+        }
+        return s;
+    }
+
     public void addNewCourse(Course course) {
         courses.add(course);
     }
