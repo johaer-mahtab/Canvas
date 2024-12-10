@@ -3,7 +3,7 @@ package com.canvas.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.canvas.Main;
+import com.canvas.Custom;
 import com.canvas.Model.DB.Current;
 
 public class Course implements Serializable {
@@ -39,7 +39,7 @@ public class Course implements Serializable {
     @Override
     public String toString() {
         return "Subject: " + subject + "\nSection: " + section + "\nRoom: " + room + "\nTiming: " + timing
-                + "\nFaculty Initials: " + facultyInitials + "\nEnrolled Students: " + Main.joinWithComma(enrolledStudentsID);
+                + "\nFaculty Initials: " + facultyInitials + "\nEnrolled Students: " + Custom.joinWithComma(enrolledStudentsID);
     }
 
     public void finishGrading(){
@@ -48,7 +48,7 @@ public class Course implements Serializable {
         }
     }
     public void getGP(){
-        
+
     }
 
     public void displayInfo() {

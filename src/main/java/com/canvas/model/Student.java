@@ -2,7 +2,7 @@ package com.canvas.Model;
 
 import java.util.ArrayList;
 
-import com.canvas.Main;
+import com.canvas.Custom;
 
 public class Student extends User {
 
@@ -32,7 +32,7 @@ public class Student extends User {
     @Override
     public String toString() {
         return super.toString() + "\nCGPA: " + cGPA + "\nCredit Passed: " + creditPassed + "\nTotal Credit: " + totalCredit
-                + "\nCourses: " + Main.joinWithComma(courseUIDList);
+                + "\nCourses: " + Custom.joinWithComma(courseUIDList);
     }
 
 }

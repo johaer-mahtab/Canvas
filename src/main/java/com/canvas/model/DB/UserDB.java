@@ -2,7 +2,7 @@ package com.canvas.Model.DB;
 
 import java.util.ArrayList;
 
-import com.canvas.Main;
+import com.canvas.Custom;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.Faculty;
@@ -76,7 +76,7 @@ public class UserDB implements Serializable, SaveLoad {
             return userDB;
         } catch (Exception e) {
             e.printStackTrace();
-            Main.exit("User DB Load Failure");
+            Custom.exit("User DB Load Failure");
             return null;
         }
     }

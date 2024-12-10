@@ -2,7 +2,7 @@ package com.canvas.Model;
 
 import java.util.ArrayList;
 
-import com.canvas.Main;
+import com.canvas.Custom;
 import com.canvas.Model.DB.Current;
 
 public class Faculty extends User {
@@ -35,6 +35,6 @@ public class Faculty extends User {
     public String toString() {
         return super.toString() + "\ninitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
                 + officeHour
-                + "\nDepartment: " + department + "\nCourses: " + Main.joinWithComma(courseUIDList);
+                + "\nDepartment: " + department + "\nCourses: " + Custom.joinWithComma(courseUIDList);
     }
 }

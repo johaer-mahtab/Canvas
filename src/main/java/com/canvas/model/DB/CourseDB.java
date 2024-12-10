@@ -2,7 +2,7 @@ package com.canvas.Model.DB;
 
 import java.util.ArrayList;
 
-import com.canvas.Main;
+import com.canvas.Custom;
 import com.canvas.Exception.NoSuchCourse;
 import com.canvas.Model.Course;
 
@@ -58,7 +58,7 @@ public class CourseDB implements Serializable, SaveLoad {
             return courseDB;
         } catch (Exception e) {
             e.printStackTrace();
-            Main.exit("Course DB Load Failure");
+            Custom.exit("Course DB Load Failure");
             return null;
         }
     }
