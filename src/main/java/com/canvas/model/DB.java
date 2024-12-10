@@ -5,13 +5,14 @@ import java.util.ArrayList;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
 
-public class CentralDB {
+public class DB {
 
     private static ArrayList<Faculty> faculties;
     private static ArrayList<Student> students;
     private static ArrayList<Course> courses;
+    private User currentUser;
 
-    public Faculty getFaculty(String id) throws NoSuchFaculty {
+    public static Faculty getFaculty(String id) throws NoSuchFaculty {
         for (Faculty faculty : faculties) {
             if (faculty.getId().equals(id))
                 return faculty;
@@ -19,7 +20,7 @@ public class CentralDB {
         throw new NoSuchFaculty();
     }
 
-    public Student getStudent(String id) throws NoSuchStudent {
+    public static Student getStudent(String id) throws NoSuchStudent {
         for (Student student : students) {
             if (student.getId().equals(id))
                 return student;
@@ -27,13 +28,15 @@ public class CentralDB {
         throw new NoSuchStudent();
     }
 
-    public void addNewFaculty(String id, String password, String fullName,
+    public static void addNewFaculty(String id, String password, String fullName,
             String initial, String officeRoom, String department) {
         faculties.add(new Faculty(id, password, fullName, initial, officeRoom, department));
     }
 
-    public void addNewStudent(String id, String password, String fullName,
+    public static void addNewStudent(String id, String password, String fullName,
             double cGPA, int creditPassed, int totalCredit) {
         students.add(new Student(id, password, fullName, cGPA, creditPassed, totalCredit));
     }
+
+    public static void add
 }
