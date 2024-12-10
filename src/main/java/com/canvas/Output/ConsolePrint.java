@@ -3,6 +3,7 @@ package com.canvas.Output;
 import java.util.Scanner;
 
 import com.canvas.Custom;
+import com.canvas.Exception.NoSuch;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.DB.Current;
@@ -28,11 +29,7 @@ public class ConsolePrint {
     
             try {
                 Current.setCurrentUser(username);
-            } catch (NoSuchFaculty e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } catch (NoSuchStudent e) {
-                // TODO Auto-generated catch block
+            } catch (NoSuch e) {
                 e.printStackTrace();
             }
             //validPassword(password);

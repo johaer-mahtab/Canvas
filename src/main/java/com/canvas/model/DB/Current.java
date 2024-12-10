@@ -1,5 +1,6 @@
 package com.canvas.Model.DB;
 
+import com.canvas.Exception.NoSuch;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.User;
@@ -37,7 +38,7 @@ public class Current {
         Current.currentUser = currentUser;
     }
 
-    public static void setCurrentUser(String userID) throws NoSuchFaculty, NoSuchStudent {
+    public static void setCurrentUser(String userID) throws NoSuch {
         if (type == 1) {
             setCurrentUser(userDB.getFaculty(userID));
         } else {
