@@ -32,8 +32,8 @@ public abstract class User implements Serializable {
         this.id = id;
     }
 
-    public String getPassword() {
-        return password;
+    public boolean matchPassword(String givenPassword) {
+        return password.matches(givenPassword);
     }
 
     public void setPassword(String password) {

@@ -6,7 +6,7 @@ public class Current {
 
     private static UserDB userDB = new UserDB();
     private static CourseDB courseDB = new CourseDB();
-    private User currentUser;
+    private static User currentUser;
     public static int type;
 
     public static void load() {
@@ -27,11 +27,11 @@ public class Current {
         return courseDB;
     }
 
-    public User getCurrentUser() {
+    public static User getCurrentUser() {
         return currentUser;
     }
 
-    public void setCurrentUser(User currentUser) {
-        this.currentUser = currentUser;
+    public static void setCurrentUser(User currentUser) {
+        Current.currentUser = currentUser;
     }
 }
