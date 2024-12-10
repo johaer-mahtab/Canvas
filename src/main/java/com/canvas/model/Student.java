@@ -40,6 +40,10 @@ public class Student extends User {
         }
     }
 
+    public ArrayList<String> getCourseUIDList() {
+        return courseUIDList;
+    }
+
     public String getDetailsOfCourse(int index) {
         String s = "";
         Course c;

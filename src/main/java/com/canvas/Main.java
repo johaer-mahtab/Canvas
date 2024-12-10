@@ -1,18 +1,22 @@
 package com.canvas;
 
 import com.canvas.Model.DB.Current;
+import com.canvas.Output.ConsolePrint;
 import com.canvas.Output.Test;
 
 public class Main {
 
     public static void main(String[] args) {
-
+        initialize();
+        ConsolePrint.print();
+        end();
     }
 
     public static void main1(String[] args) {
         System.out.println("Hello World!");
         initialize();
-        Test.tsts();
+        //Test.tsts();
+        ConsolePrint.print();
         end();
     }
 
