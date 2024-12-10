@@ -7,6 +7,7 @@ public class Current {
     private static UserDB userDB = new UserDB();
     private static CourseDB courseDB = new CourseDB();
     private User currentUser;
+    public static int type;
 
     public static void load() {
         userDB = new UserDB().loadData();
