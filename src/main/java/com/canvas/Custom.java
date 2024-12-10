@@ -36,4 +36,8 @@ public class Custom {
         System.out.print("Enter the value of " + fieldName + ": ");
         return scanner.nextDouble();
     }
+
+    public static int getKey() {
+        return scanner.nextInt();
+    }
 }

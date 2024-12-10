@@ -2,7 +2,6 @@ package com.canvas;
 
 import com.canvas.Model.DB.Current;
 import com.canvas.Output.ConsolePrint;
-import com.canvas.Output.Test;
 
 public class Main {
 

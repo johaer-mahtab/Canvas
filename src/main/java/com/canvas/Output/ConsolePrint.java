@@ -1,40 +1,31 @@
 package com.canvas.Output;
 
-import java.util.Scanner;
-
 import com.canvas.Custom;
 import com.canvas.Exception.NoSuch;
-import com.canvas.Exception.NoSuchFaculty;
-import com.canvas.Exception.NoSuchStudent;
-import com.canvas.Model.Course;
 import com.canvas.Model.Faculty;
 import com.canvas.Model.Student;
 import com.canvas.Model.DB.Current;
 
 public class ConsolePrint {
 
-    public static int getKey() {
-        return new Scanner(System.in).nextInt();
-    }
-
     public static int loginOrSignup() {
         System.out.print("Welcome! [1] Login | [2] Signup: ");
-        return getKey();
+        return Custom.getKey();
     }
 
     public static int facultyOrStudent() {
         System.out.print("[1] Faculty | [2] Student: ");
-        return getKey();
+        return Custom.getKey();
     }
 
     public static int facultyOption() {
         System.out.print("[1] Add new course | [2] Browse your courses: ");
-        return getKey();
+        return Custom.getKey();
     }
 
     public static int studentOption() {
         System.out.print("[1] Enroll in a course | [2] Browse your courses: ");
-        return getKey();
+        return Custom.getKey();
     }
 
     public static int chooseCourseIndex() {
