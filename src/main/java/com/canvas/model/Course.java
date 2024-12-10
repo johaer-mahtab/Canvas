@@ -8,18 +8,26 @@ public class Course implements Serializable {
     private int section;
     private String room; // make new classes to have methods that avoid double booking?
     private String timing;
-    private Faculty faculty;
-    private ArrayList<Student> enrolledStudents;
+    private String facultyInitials;
+    private ArrayList<String> enrolledStudentsID;
 
-    public ArrayList<Student> getStudents() {
-        return enrolledStudents;
+    public ArrayList<String> getStudentIDs() {
+        return enrolledStudentsID;
     }
 
-    public Course(String subject, int section, String room, String timing, Faculty faculty) {
+    public void addStudent(String studentID) {
+        enrolledStudentsID.add(studentID);
+    }
+
+    public Course(String subject, int section, String room, String timing, String facultyInitials) {
         this.subject = subject;
         this.section = section;
         this.room = room;
         this.timing = timing;
-        this.faculty = faculty;
+        this.facultyInitials = facultyInitials;
+    }
+
+    public String getUID() {
+        return subject + '.' + section;
     }
 }

@@ -7,10 +7,11 @@ public class Faculty extends User {
     private String officeRoom;
     private String officeHour;
     private String department;
-    private ArrayList<Course> courses;
+    private ArrayList<String> courseUIDList;
 
-    public void addNewCourse(Course course) {
-        courses.add(course);
+    public void createNewCourse(String subject, int section, String room, String timing, String facultyInitials) {
+        Course course = new Course(subject, section, room, timing, facultyInitials);
+        courseUIDList.add(course.getUID());
     }
 
     public Faculty(String id, String password, String fullName, String initial, String officeRoom, String department) {
@@ -22,12 +23,13 @@ public class Faculty extends User {
 
     @Override
     public void displayInfo() {
+        System.out.println(toString());
     }
 
     @Override
     public String toString() {
         return super.toString() + "\ninitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
                 + officeHour
-                + "\nDepartment: " + department + "\nCourses:" + courses;
+                + "\nDepartment: " + department + "\nCourses: " + courseUIDList;
     }
 }

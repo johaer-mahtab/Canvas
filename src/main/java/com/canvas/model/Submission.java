@@ -1,12 +1,12 @@
 package com.canvas.Model;
 
 public class Submission {
-    private Student student;
+    private String studentID;
     private boolean submitted;
     private double marks;
     private String feedback;
 
-    public Submission(Student student) {
-        this.student = student;
+    public Submission(String student) {
+        this.studentID = student;
     }
 }

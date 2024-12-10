@@ -1,10 +1,13 @@
-package com.canvas.Model;
+package com.canvas.Model.DB;
 
 import java.util.ArrayList;
 
 import com.canvas.Main;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
+import com.canvas.Model.Course;
+import com.canvas.Model.Faculty;
+import com.canvas.Model.Student;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -15,11 +18,10 @@ import java.io.Serializable;
 
 import javax.swing.JFileChooser;
 
-public class DB implements Serializable {
+public class UserDB implements Serializable, SaveLoad {
 
     private ArrayList<Faculty> faculties;
     private ArrayList<Student> students;
-    private ArrayList<Course> courses;
     private static JFileChooser fileChooser = new JFileChooser();
 
     public Faculty getFaculty(String id) throws NoSuchFaculty {
@@ -48,12 +50,6 @@ public class DB implements Serializable {
         students.add(new Student(id, password, fullName, cGPA, creditPassed, totalCredit));
     }
 
-    public void addNewCourse(String subject, int section, String room, String timing, Faculty faculty) {
-        Course course = new Course(subject, section, room, timing, faculty);
-        courses.add(course);
-        faculty.addNewCourse(course);
-    }
-
     public void saveData() {
         try {
             fileChooser.setSelectedFile(new File("database.dat"));// Recommends a name
@@ -69,16 +65,16 @@ public class DB implements Serializable {
         }
     }
 
-    public DB loadData() {
+    public UserDB loadData() {
         try {
-            DB returnData;
+            UserDB userDB;
             fileChooser.showOpenDialog(null);
             FileInputStream fileInputStream = new FileInputStream(fileChooser.getSelectedFile().getAbsolutePath());
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            returnData = (DB) objectInputStream.readObject();
+            userDB = (UserDB) objectInputStream.readObject();
             objectInputStream.close();
             fileInputStream.close();
-            return returnData;
+            return userDB;
         } catch (Exception e) {
             e.printStackTrace();
             Main.exit("Load Failure");
