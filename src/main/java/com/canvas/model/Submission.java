@@ -3,7 +3,7 @@ package com.canvas.Model;
 public class Submission {
     private String studentID;
     private boolean submitted;
-    private double marks;
+    private double marks = -1;
     private String feedback;
 
     public Submission(String student) {
@@ -16,5 +16,4 @@ public class Submission {
                 + feedback;
     }
 
-    
 }

@@ -48,14 +48,17 @@ public class Main {
 
     public static void main1(String[] args) {
         System.out.println("Hello World!");
+        initialize();
         Test.tsts();
+        end();
     }
 
     public static void initialize() {
         Current.load();
     }
 
-    public static void end() {
+    public static void end(){
+        Current.save();
     }
 
     public static void exit(String message) {
