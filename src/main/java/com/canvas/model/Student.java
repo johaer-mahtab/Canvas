@@ -11,7 +11,7 @@ public class Student extends User {
 
     public Student(String id, String password, String fullName, double cGPA, int creditPassed, int totalCredit) {
         super(id, password, fullName);
-        
+        //change
         this.cGPA = cGPA;
         this.creditPassed = creditPassed;
         this.totalCredit = totalCredit;
