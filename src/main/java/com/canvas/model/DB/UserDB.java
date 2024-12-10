@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.canvas.Main;
 import com.canvas.Exception.NoSuchFaculty;
 import com.canvas.Exception.NoSuchStudent;
-import com.canvas.Model.Course;
 import com.canvas.Model.Faculty;
 import com.canvas.Model.Student;
 
@@ -52,7 +51,7 @@ public class UserDB implements Serializable, SaveLoad {
 
     public void saveData() {
         try {
-            fileChooser.setSelectedFile(new File("database.dat"));// Recommends a name
+            fileChooser.setSelectedFile(new File("UserDB.dat"));// Recommends a name
             fileChooser.showSaveDialog(null);
             FileOutputStream fileOutputStream = new FileOutputStream(fileChooser.getSelectedFile().getAbsolutePath());
             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
@@ -77,7 +76,7 @@ public class UserDB implements Serializable, SaveLoad {
             return userDB;
         } catch (Exception e) {
             e.printStackTrace();
-            Main.exit("Load Failure");
+            Main.exit("User DB Load Failure");
             return null;
         }
     }
