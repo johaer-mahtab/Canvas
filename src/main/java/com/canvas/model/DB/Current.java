@@ -1,5 +1,7 @@
 package com.canvas.Model.DB;
 
+import com.canvas.Exception.NoSuchFaculty;
+import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.User;
 
 public class Current {
@@ -14,7 +16,7 @@ public class Current {
         courseDB = new CourseDB().loadData();
     }
 
-    public static void save(){
+    public static void save() {
         userDB.saveData();
         courseDB.saveData();
     }
@@ -33,5 +35,13 @@ public class Current {
 
     public static void setCurrentUser(User currentUser) {
         Current.currentUser = currentUser;
+    }
+
+    public static void setCurrentUser(String userID) throws NoSuchFaculty, NoSuchStudent {
+        if (type == 1) {
+            setCurrentUser(userDB.getFaculty(userID));
+        } else {
+            setCurrentUser(userDB.getStudent(userID));
+        }
     }
 }

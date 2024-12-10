@@ -1,5 +1,5 @@
 package com.canvas.Exception;
 
-public class NoSuchFaculty extends Exception {
+public class NoSuchFaculty extends NoSuch {
 
 }
