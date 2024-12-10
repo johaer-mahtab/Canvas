@@ -26,6 +26,7 @@ public class Student extends User {
 
     @Override
     public void displayInfo() {
+        System.out.println(toString());
     }
 
     @Override

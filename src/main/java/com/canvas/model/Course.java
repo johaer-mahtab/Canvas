@@ -39,5 +39,10 @@ public class Course implements Serializable {
                 + "\nFaculty Initials: " + facultyInitials + "\nEnrolled Students: " + Main.joinWithComma(enrolledStudentsID);
     }
 
+
+    public void displayInfo() {
+        System.out.println(toString());
+    }
+
     
 }
