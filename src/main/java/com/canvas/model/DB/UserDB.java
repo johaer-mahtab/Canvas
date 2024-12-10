@@ -19,8 +19,8 @@ import javax.swing.JFileChooser;
 
 public class UserDB implements Serializable, SaveLoad {
 
-    private ArrayList<Faculty> faculties;
-    private ArrayList<Student> students;
+    private ArrayList<Faculty> faculties = new ArrayList<>();
+    private ArrayList<Student> students = new ArrayList<>();
     private static JFileChooser fileChooser = new JFileChooser();
 
     public Faculty getFaculty(String id) throws NoSuchFaculty {
@@ -40,8 +40,8 @@ public class UserDB implements Serializable, SaveLoad {
     }
 
     public void addNewFaculty(String id, String password, String fullName,
-            String initial, String officeRoom, String department) {
-        faculties.add(new Faculty(id, password, fullName, initial, officeRoom, department));
+            String initial, String officeRoom, String officeHour, String department) {
+        faculties.add(new Faculty(id, password, fullName, initial, officeRoom, officeHour, department));
     }
 
     public void addNewStudent(String id, String password, String fullName,

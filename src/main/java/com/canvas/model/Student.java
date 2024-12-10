@@ -9,7 +9,7 @@ public class Student extends User {
     private double cGPA;
     private int creditPassed;
     private int totalCredit;
-    private ArrayList<String> courseUIDList;
+    private ArrayList<String> courseUIDList = new ArrayList<>();
 
     public Student(String id, String password, String fullName, double cGPA, int creditPassed, int totalCredit) {
         super(id, password, fullName);

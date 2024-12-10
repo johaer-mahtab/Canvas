@@ -3,6 +3,7 @@ package com.canvas.Model.DB;
 import java.util.ArrayList;
 
 import com.canvas.Main;
+import com.canvas.Exception.NoSuchCourse;
 import com.canvas.Model.Course;
 
 import java.io.File;
@@ -15,12 +16,21 @@ import java.io.Serializable;
 import javax.swing.JFileChooser;
 
 public class CourseDB implements Serializable, SaveLoad {
-    private ArrayList<Course> courses;
+    private ArrayList<Course> courses = new ArrayList<>();
     private static JFileChooser fileChooser = new JFileChooser();
-    public void addNewCourse(Course course)
-    {
+
+    public void addNewCourse(Course course) {
         courses.add(course);
     }
+
+    public Course getCourse(String CourseUID) throws NoSuchCourse {
+        for (Course course : courses) {
+            if (course.getUID().equals(CourseUID))
+                return course;
+        }
+        throw new NoSuchCourse();
+    }
+
     public void saveData() {
         try {
             fileChooser.setSelectedFile(new File("CourseDB.dat"));// Recommends a name

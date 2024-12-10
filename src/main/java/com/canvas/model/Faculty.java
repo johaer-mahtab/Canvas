@@ -10,18 +10,19 @@ public class Faculty extends User {
     private String officeRoom;
     private String officeHour;
     private String department;
-    private ArrayList<String> courseUIDList;
+    private ArrayList<String> courseUIDList = new ArrayList<>();
 
-    public void createNewCourse(String subject, int section, String room, String timing, String facultyInitials) {
-        Course course = new Course(subject, section, room, timing, facultyInitials);
+    public void createNewCourse(String subject, int section, String room, String timing) {
+        Course course = new Course(subject, section, room, timing, initial);
         courseUIDList.add(course.getUID());
         Current.getCourseDB().addNewCourse(course);
     }
 
-    public Faculty(String id, String password, String fullName, String initial, String officeRoom, String department) {
+    public Faculty(String id, String password, String fullName, String initial, String officeRoom, String officeHour, String department) {
         super(id, password, fullName);
         this.initial = initial;
         this.officeRoom = officeRoom;
+        this.officeHour = officeHour;
         this.department = department;
     }
 

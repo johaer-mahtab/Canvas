@@ -11,7 +11,7 @@ public class Gradeable implements Serializable {
     private String type;
     private long deadline;
     private double totalMarks;
-    private ArrayList<Submission> submissions;
+    private ArrayList<Submission> submissions = new ArrayList<>();
 
     public Gradeable(String task, int days, double totalMark, Course currentCourse) {
         this.type = task;

@@ -11,7 +11,7 @@ public class Course implements Serializable {
     private String room; // make new classes to have methods that avoid double booking?
     private String timing;
     private String facultyInitials;
-    private ArrayList<String> enrolledStudentsID;
+    private ArrayList<String> enrolledStudentsID = new ArrayList<>();
 
     public ArrayList<String> getStudentIDs() {
         return enrolledStudentsID;
