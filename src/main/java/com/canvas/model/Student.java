@@ -2,6 +2,8 @@ package com.canvas.Model;
 
 import java.util.ArrayList;
 
+import com.canvas.Main;
+
 public class Student extends User {
 
     private double cGPA;
@@ -24,6 +26,12 @@ public class Student extends User {
 
     @Override
     public void displayInfo() {
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "\nCGPA: " + cGPA + "\nCredit Passed: " + creditPassed + "\nTotal Credit: " + totalCredit
+                + "\nCourses: " + Main.parseIds(courseUIDList);
     }
 
 }

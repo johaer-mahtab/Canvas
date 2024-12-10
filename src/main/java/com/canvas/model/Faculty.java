@@ -2,6 +2,8 @@ package com.canvas.Model;
 
 import java.util.ArrayList;
 
+import com.canvas.Main;
+
 public class Faculty extends User {
     private String initial;
     private String officeRoom;
@@ -30,6 +32,6 @@ public class Faculty extends User {
     public String toString() {
         return super.toString() + "\ninitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
                 + officeHour
-                + "\nDepartment: " + department + "\nCourses: " + courseUIDList;
+                + "\nDepartment: " + department + "\nCourses: " + Main.parseIds(courseUIDList);
     }
 }
