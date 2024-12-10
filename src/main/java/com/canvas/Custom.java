@@ -24,7 +24,8 @@ public class Custom {
 
     public static String getInputOfString(String fieldName) {
         System.out.print("Enter the value of " + fieldName + ": ");
-        return scanner.nextLine().trim();
+        String s = scanner.nextLine().trim();
+        return s.length() > 0 ? s : scanner.nextLine().trim();
     }
 
     public static int getInputOfInt(String fieldName) {

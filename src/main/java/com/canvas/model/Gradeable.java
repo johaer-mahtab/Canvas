@@ -1,14 +1,13 @@
 package com.canvas.Model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
 public class Gradeable implements Serializable {
-    public static final long NANOSECONDS_IN_A_DAY = 86400000000000l;
-
     private String type;
-    private long deadline;
+    private LocalDate deadline;
     private double totalMark;
     private ArrayList<Submission> submissions = new ArrayList<>();
 
@@ -28,14 +27,6 @@ public class Gradeable implements Serializable {
         this.type = type;
     }
 
-    public long getDeadline() {
-        return deadline;
-    }
-
-    public void setDeadline(long deadline) {
-        this.deadline = deadline;
-    }
-
     public double getTotalMark() {
         return totalMark;
     }
@@ -47,7 +38,7 @@ public class Gradeable implements Serializable {
     public Gradeable(String task, int days, double totalMark, Course currentCourse) {
         this.type = task;
         this.totalMark = totalMark;
-        deadline = System.nanoTime() + days * NANOSECONDS_IN_A_DAY;
+        deadline = LocalDate.now().plusDays(days);
     }
 
     @Override

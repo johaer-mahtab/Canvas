@@ -17,6 +17,10 @@ public class Course implements Serializable {
     private ArrayList<String> enrolledStudentsID = new ArrayList<>();
     private ArrayList<Gradeable> grades = new ArrayList<>();
 
+    public void addNewGradeable(String task, int days, double totalMark) {
+        grades.add(new Gradeable(task, days, totalMark, this));
+    }
+
     public ArrayList<Gradeable> getGrades() {
         return grades;
     }
