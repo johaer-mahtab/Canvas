@@ -8,14 +8,22 @@ public class Faculty extends User {
     private String officeHour;
     private String department;
     private ArrayList<Course> courses;
+
     public Faculty(String id, String password, String fullName, String initial, String officeRoom, String department) {
         super(id, password, fullName);
         this.initial = initial;
         this.officeRoom = officeRoom;
         this.department = department;
     }
+
     @Override
     public void displayInfo() {
     }
-}
 
+    @Override
+    public String toString() {
+        return super.toString() + "\ninitial: " + initial + "\nOffice Room: " + officeRoom + "\nOffice Hours: "
+                + officeHour
+                + "\nDepartment: " + department + "\nCourses=" + courses;
+    }
+}

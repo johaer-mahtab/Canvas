@@ -41,4 +41,9 @@ public abstract class User implements Serializable {
     }
 
     public abstract void displayInfo();
+
+    @Override
+    public String toString() {
+        return "Full Name: " + fullName + "\nID: " + id;
+    }
 }
