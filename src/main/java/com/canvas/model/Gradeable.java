@@ -3,7 +3,6 @@ package com.canvas.Model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.canvas.Custom;
 
 public class Gradeable implements Serializable {
     public static final long NANOSECONDS_IN_A_DAY = 86400000000000l;

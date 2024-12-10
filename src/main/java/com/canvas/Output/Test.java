@@ -1,6 +1,5 @@
 package com.canvas.Output;
 
-import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.Course;
 import com.canvas.Model.Faculty;
 import com.canvas.Model.Student;

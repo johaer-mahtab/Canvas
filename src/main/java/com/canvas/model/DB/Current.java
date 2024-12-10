@@ -1,8 +1,6 @@
 package com.canvas.Model.DB;
 
 import com.canvas.Exception.NoSuch;
-import com.canvas.Exception.NoSuchFaculty;
-import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.User;
 
 public class Current {

@@ -1,9 +1,9 @@
 package com.canvas.Model.DB;
 
-public interface SaveLoad {
+public interface SaveLoad<T> {
 
     void saveData();
 
-    <T>T loadData();
+    T loadData();
 
 }

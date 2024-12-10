@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import com.canvas.Custom;
+import com.canvas.Exception.NoSuchStudent;
 import com.canvas.Model.DB.Current;
 
 public class Course implements Serializable {
@@ -49,13 +50,17 @@ public class Course implements Serializable {
 
     public void finishGrading() {
         for (String studentID : enrolledStudentsID) {
-            // Current.getUserDB().getStudent(studentID).updateCGPA();
+            try {
+                Current.getUserDB().getStudent(studentID).updateCGPA(getGP(studentID), credit);
+            } catch (NoSuchStudent e) {
+                System.out.println("Couldn't find student " + studentID);
+            }
         }
     }
 
     public double getTotalMarks() {
         double x = 0;
-        for (Gradeable grade : grades) 
+        for (Gradeable grade : grades)
             x += grade.getTotalMark();
         return x;
     }
@@ -79,8 +84,8 @@ public class Course implements Serializable {
     public double getGP(String studentID) {
         double total = getTotalMarks();
         for (String string : enrolledStudentsID) {
-                if (string.equals(studentID))
-                return 4*credit*getMarksOf(string)/total;
+            if (string.equals(studentID))
+                return 4 * credit * getMarksOf(string) / total;
         }
         return 0;
     }

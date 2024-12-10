@@ -15,9 +15,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import javax.swing.JFileChooser;
-
-public class UserDB implements Serializable, SaveLoad {
+public class UserDB implements Serializable, SaveLoad<UserDB> {
 
     private ArrayList<Faculty> faculties = new ArrayList<>();
     private ArrayList<Student> students = new ArrayList<>();

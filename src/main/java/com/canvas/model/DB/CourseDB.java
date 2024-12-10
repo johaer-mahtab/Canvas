@@ -13,9 +13,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-import javax.swing.JFileChooser;
-
-public class CourseDB implements Serializable, SaveLoad {
+public class CourseDB implements Serializable, SaveLoad<CourseDB> {
     private ArrayList<Course> courses = new ArrayList<>();
     private static final File DB = new File("Course.DB");
 
