@@ -52,10 +52,9 @@ public class Student extends User {
             s += c.toString();
             for (Gradeable gradeable : c.getGrades())
                 for (Submission submission : gradeable.getSubmissions())
-                    if (submission.equals(getId()))
+                    if (submission.getStudentID().equals(getId()))
                         s += "\n" + gradeable.toString() + "\n" + submission.toStudentString();
         } catch (NoSuchCourse e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
             System.out.println("DB Corrupted");
         }
