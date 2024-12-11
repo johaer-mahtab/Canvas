@@ -1,7 +1,6 @@
 package com.canvas;
 
 import com.canvas.Model.DB.Current;
-import com.canvas.Output.ConsolePrint;
 
 public class Main {
 

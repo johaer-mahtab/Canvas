@@ -1,6 +1,5 @@
-package com.canvas.Output;
+package com.canvas;
 
-import com.canvas.Custom;
 import com.canvas.Exception.NoSuch;
 import com.canvas.Exception.NoSuchCourse;
 import com.canvas.Model.Course;
