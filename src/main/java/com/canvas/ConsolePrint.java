@@ -44,6 +44,10 @@ public class ConsolePrint {
         return Custom.getInputOfInt("Course Index");
     }
 
+    public static int chooseGradeableIndex() {
+        return Custom.getInputOfInt("Gradeable Index");
+    }
+
     public static void print() {
 
         int curr = loginOrSignup();
@@ -75,12 +79,12 @@ public class ConsolePrint {
                             Custom.getInputOfInt("Credit"),
                             Custom.getInputOfString("Room"),
                             Custom.getInputOfString("Timing"));
-                } else {
+                } else if (faculty.getCourseUIDList().size()>0) {
                     for (int i = 0; i < faculty.getCourseUIDList().size(); i++) {
                         System.out.println(i + 1 + ": " + faculty.getCourseUIDList().get(i));
                     }
                     try {
-                        Course selectedCourse = faculty.getCourse(chooseCourseIndex() - 1);
+                        Course selectedCourse = faculty.getCourse(chooseGradeableIndex() - 1);
                         selectedCourse.displayInfo();
                         if (facultyCourseOption() == 1) {
                             selectedCourse.addNewGradeable(
@@ -91,7 +95,7 @@ public class ConsolePrint {
                             for (int i = 0; i < selectedCourse.getGrades().size(); i++) {
                                 System.out.println(i + 1 + ": " + selectedCourse.getGrades().get(i).getType());
                             }
-                            Gradeable selectedGradeable = selectedCourse.getGrades().get(Custom.getKey() - 1);
+                            Gradeable selectedGradeable = selectedCourse.getGrades().get(chooseCourseIndex() - 1);
                             if (facultyGradeableOption() == 1) {
                                 selectedGradeable.addNewSubmission(
                                         Custom.getInputOfString("ID"),
@@ -103,7 +107,8 @@ public class ConsolePrint {
                     } catch (NoSuchCourse e) {
                         System.out.println("Failed to get course");
                     }
-
+                } else {
+                    System.out.println("No course to browse");
                 }
             } else {
 
@@ -116,9 +121,10 @@ public class ConsolePrint {
                     student.enroll(Custom.getInputOfString("Course Unique ID"));
 
                 } else {
-
-                    System.out.println(Custom.joinWithComma(student.getCourseUIDList()));
-                    student.getDetailsOfCourse(chooseCourseIndex());
+                    for (int i = 0; i < student.getCourseUIDList().size(); i++) {
+                        System.out.println(i + 1 + ": " + student.getCourseUIDList().get(i));
+                    }
+                    System.out.println(student.getDetailsOfCourse(chooseCourseIndex() - 1));
 
                 }
 

@@ -20,7 +20,7 @@ public class CourseDB implements Serializable, SaveLoad<CourseDB> {
     public String showAllCourses() {
         String s = "";
         for (Course course : courses) {
-            s += course.toString() + "\n";
+            s += "Course UID: " + course.getUID() + "\n" + course.toString() + "\n";
         }
         return s;
     }
